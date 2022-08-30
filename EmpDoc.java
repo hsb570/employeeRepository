@@ -35,3 +35,26 @@ public class Employee {
 	
 	
 }
+package com.hit.springboot.restcontroller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.hit.springboot.entity.Employee;
+import com.hit.springboot.repository.EmployeeRepository;
+
+@RestController
+public class EmployeeRestController {
+    @Autowired
+	EmployeeRepository employeeRepository;
+	@PostMapping(value = "savaEmployee")
+    public Employee saveEmployee(Employee employee) {
+    	
+    	Employee employee2=employeeRepository.save(employee);
+    	return employee2;
+    	
+    }
+    
+    
+}
